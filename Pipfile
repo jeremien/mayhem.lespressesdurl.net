@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 flask = "*"
 pillow = "*"
+hitherdither = {git = "https://www.github.com/hbldh/hitherdither"}
+flask-autoindex = "*"
 
 [requires]
 python_version = "3.8"

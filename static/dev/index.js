@@ -1,0 +1,57 @@
+import './main.scss'
+
+class imageRatio extends Paged.Handler {
+
+  constructor(chunker, polisher, caller) {
+    super(chunker, polisher, caller)
+  }
+
+  afterParsed(parsed) {
+    // create an array that will store the images data later on
+    let imagePromises = [];
+    // find all images parsed by paged.js
+    let images = parsed.querySelectorAll('img')
+    // for each image
+    images.forEach(image => {
+      // load the image as an object
+      let img = new Image ()
+      // test if the image is loaded
+      let resolve, reject
+      let imageLoaded = new Promise( function (r, x) {
+        resolve = r
+        reject = x
+      })
+      // when the image loads
+      img.onload = function () {
+        // get the height
+        let height = img.height
+        // page in px 
+        const pageH = 600
+        // calculate the marges
+        const marginImage = (pageH - height)/2
+        if (marginImage > 0) {
+          // applique to the image except if its negative
+          image.style.marginTop = marginImage + 'px'
+        }
+        // resolve the promise
+        resolve()
+      }
+      // if there is an error, reject the promise
+      img.onerror = function () {
+        reject()
+      }
+
+      img.src = image.src
+
+      imagePromises.push(imageLoaded)
+    })
+
+    return Promise.all(imagePromises).catch(err => {
+      console.warn(err)
+    })
+  }
+}
+
+// and we register the handler
+
+Paged.registerHandlers(imageRatio)

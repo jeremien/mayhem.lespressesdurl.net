@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  {% for d in data %}
+    
+    {% for file in d.files %}
+    <div class="chapter">{{ d.directory }} {{ file }}</div>
+    <div class="page image">
+      <figure id="figure" >
+        <img src="{{ url_for('get_image', dir=d.directory, file=file) }}" /></li>
+      </figure>
+    </div>
+    {% endfor %}
+    
+  {% endfor %}
+{% endblock %}

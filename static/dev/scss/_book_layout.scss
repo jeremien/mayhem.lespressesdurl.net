@@ -1,0 +1,26 @@
+
+.title {
+    break-before: page;
+    position: running(titleRunning);
+
+}
+
+.chapter {
+    position: running(chapterRunning);
+}
+
+.garde {
+    height: $pageheight;
+}
+
+.image {
+    padding-left: 5mm;
+    padding-right: 5mm;
+    height: $pageheight;
+    figure {
+        img {
+            width: 100%;
+        }
+    }
+    break-before: right;
+}

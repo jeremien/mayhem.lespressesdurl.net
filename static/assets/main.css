@@ -1,0 +1,156 @@
+/*!*********************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./static/dev/main.scss ***!
+  \*********************************************************************************************************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* To define how the book look on the screen: */
+:root {
+  --color-background:  whitesmoke;
+  --color-pageBox: #666;
+  --color-paper: white;
+  --color-marginBox: transparent; }
+
+/* To define how the book look on the screen: */
+@media screen {
+  body {
+    background-color: var(--color-background); }
+  .pagedjs_pages {
+    display: flex;
+    width: calc(var(--pagedjs-width) * 2);
+    flex: 0;
+    flex-wrap: wrap;
+    margin: 0 auto; }
+  .pagedjs_page {
+    --pagedjs-baseline: 10mm;
+    --pagedjs-baseline-position: 9mm;
+    --pagedjs-baseline-color: cyan;
+    background-color: var(--color-paper);
+    background-size: 100% var(--pagedjs-baseline);
+    background-repeat: repeat-y;
+    background-position-y: var(--pagedjs-baseline-position); }
+  .pagedjs_first_page {
+    margin-left: var(--pagedjs-width); }
+  .pagedjs_page:last-of-type {
+    margin-bottom: 10mm; } }
+
+.pagedjs_titre_page > .pagedjs_sheet > .pagedjs_pagebox > .pagedjs_area {
+  background-color: white !important; }
+
+@page {
+  size: 108mm 175mm;
+  margin: 20mm;
+  marks: crop;
+  bleed: 3.8mm; }
+
+@page :first {
+  margin-left: 10mm;
+  margin-right: 15mm;
+  margin-top: 20mm;
+  margin-bottom: 20mm;
+  @top-center {
+    content: element(titleRunning);
+    height: 20mm;
+    font-family: 'Karrik', Arial, Helvetica, sans-serif;
+    font-size: 7pt;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 10mm; }
+  @bottom-center {
+    content: counter(page);
+    font-family: 'Karrik',Arial, Helvetica, sans-serif;
+    font-size: 7pt;
+    padding-top: 5mm;
+    height: 20mm;
+    display: none; } }
+
+@page :right {
+  margin-left: 10mm;
+  margin-right: 15mm;
+  margin-top: 20mm;
+  margin-bottom: 20mm;
+  @top-center {
+    content: element(chapterRunning);
+    height: 20mm;
+    font-family: 'Karrik', Arial, Helvetica, sans-serif;
+    font-size: 7pt;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 10mm; }
+  @bottom-center {
+    content: counter(page);
+    font-family: 'Karrik',Arial, Helvetica, sans-serif;
+    font-size: 7pt;
+    padding-top: 5mm;
+    height: 20mm; } }
+
+@page :left {
+  margin-left: 15mm;
+  margin-right: 10mm;
+  margin-top: 20mm;
+  margin-bottom: 20mm; }
+
+@page :blank {
+  margin-left: 8mm;
+  margin-right: 10mm;
+  margin-top: 10mm;
+  @top-center {
+    content: '';
+    padding-top: 5mm; } }
+
+.title {
+  -moz-column-break-before: page;
+       break-before: page;
+  position: running(titleRunning); }
+
+.chapter {
+  position: running(chapterRunning); }
+
+.garde {
+  height: var(--pagedjs-pagebox-height); }
+
+.image {
+  padding-left: 5mm;
+  padding-right: 5mm;
+  height: var(--pagedjs-pagebox-height);
+  -moz-column-break-before: right;
+       break-before: right; }
+  .image figure img {
+    width: 100%; }
+

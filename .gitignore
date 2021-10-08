@@ -2,6 +2,7 @@
 *.jpeg
 *.png
 *.gif
+*.pdf
 
 ### Flask ###
 instance/*
