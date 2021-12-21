@@ -4,9 +4,13 @@
 
   {% for d in data %}
     
+    {% if d.directory == 'corps' %}
+      {% include 'texte.html' %}
+    {% endif %}
+
     {% for file in d.files %}
     <div class="chapter">{{ d.directory }}</div>
-    <div class="page">
+     <div class="page">
       <figure id="figure" >
         <img src="{{ url_for('get_image', dir=d.directory, file=file) }}" /></li>
       </figure>

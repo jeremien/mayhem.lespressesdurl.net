@@ -15,6 +15,7 @@ class imageRatio extends Paged.Handler {
     images.forEach(image => {
       // load the image as an object
       let img = new Image ()
+      // console.log(img)
       // test if the image is loaded
       let resolve, reject
       let imageLoaded = new Promise( function (r, x) {
@@ -23,16 +24,36 @@ class imageRatio extends Paged.Handler {
       })
       // when the image loads
       img.onload = function () {
-        // get the height
-        let height = img.height
         // page in px 
         const pageH = 600
-        // calculate the marges
-        const marginImage = (pageH - height)/2
-        if (marginImage > 0) {
-          // applique to the image except if its negative
-          image.style.marginTop = marginImage + 'px'
+
+        // find its height
+        const imH = img.height
+
+        // find its width
+        const imW = img.width
+        console.log('height', imH, 'width', imW)
+
+
+        if (imH < 600) {
+          image.parentNode.parentNode.classList.add('imageA')
+          // calculate the marges
+          const marginImage = (pageH - imH)/2
+          console.log(marginImage)
+          if (marginImage > 0) {
+            // applique to the image except if its negative
+            image.style.marginTop = marginImage + 'px'
+          }
+
+        } else if (imH > 1000 ) {
+          image.parentNode.parentNode.classList.add('imageC')
+        } else {
+          image.parentNode.parentNode.classList.add('imageB')
+
         }
+
+      
+
         // resolve the promise
         resolve()
       }

@@ -1,4 +1,17 @@
 
+* {
+    font-family: 'Theinhardt';
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+.info {
+    font-family: 'Theinhardt';
+    font-size: 11pt;
+    font-weight: bold;
+    line-height: 13pt;
+}
+
 .title {
     break-before: page;
     position: running(titleRunning);
@@ -10,17 +23,46 @@
 }
 
 .garde {
+    page: faux-titre;
     height: $pageheight;
+    page-break-after: always;
 }
 
-.image {
-    padding-left: 5mm;
-    padding-right: 5mm;
+.imageA {
+    padding-left: 10mm;
+    // padding-right: 5mm;
     height: $pageheight;
+    // width: 300px;
     figure {
         img {
-            width: 100%;
+            width: 90%;
         }
     }
-    break-before: right;
+    // break-before: right;
+}
+
+.imageB {
+    padding-left: 15mm;
+    // padding-right: 5mm;
+    height: $pageheight;
+    // width: 200px;
+    figure {
+        img {
+            width: 80%;
+        }
+    }
+    // break-before: right;
+}
+
+.imageC {
+    padding-left: 25mm;
+    // padding-right: 5mm;
+    height: $pageheight;
+    // width: 200px;
+    figure {
+        img {
+            width: 50%;
+        }
+    }
+    // break-before: right;
 }

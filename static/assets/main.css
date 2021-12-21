@@ -38,6 +38,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+@font-face {
+  font-family: 'Theinhardt';
+  src: url("http://localhost:5000/static/assets/fonts/Theinhardt-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal; }
+
 /* To define how the book look on the screen: */
 :root {
   --color-background:  whitesmoke;
@@ -81,58 +87,57 @@ table {
   margin-left: 10mm;
   margin-right: 15mm;
   margin-top: 20mm;
-  margin-bottom: 20mm;
-  @top-center {
-    content: element(titleRunning);
-    height: 20mm;
-    font-family: 'Karrik', Arial, Helvetica, sans-serif;
-    font-size: 7pt;
-    letter-spacing: 0.1rem;
-    text-align: center;
-    text-transform: uppercase;
-    padding-top: 10mm; }
-  @bottom-center {
-    content: counter(page);
-    font-family: 'Karrik',Arial, Helvetica, sans-serif;
-    font-size: 7pt;
-    padding-top: 5mm;
-    height: 20mm;
-    display: none; } }
+  margin-bottom: 20mm; }
 
 @page :right {
   margin-left: 10mm;
   margin-right: 15mm;
   margin-top: 20mm;
   margin-bottom: 20mm;
-  @top-center {
-    content: element(chapterRunning);
-    height: 20mm;
-    font-family: 'Karrik', Arial, Helvetica, sans-serif;
-    font-size: 7pt;
-    letter-spacing: 0.1rem;
-    text-align: center;
-    text-transform: uppercase;
-    padding-top: 10mm; }
   @bottom-center {
     content: counter(page);
-    font-family: 'Karrik',Arial, Helvetica, sans-serif;
-    font-size: 7pt;
-    padding-top: 5mm;
+    font-family: 'Theinhardt';
+    font-size: 11pt;
+    font-weight: bold;
     height: 20mm; } }
 
 @page :left {
   margin-left: 15mm;
   margin-right: 10mm;
   margin-top: 20mm;
-  margin-bottom: 20mm; }
+  margin-bottom: 20mm;
+  @bottom-center {
+    content: element(chapterRunning);
+    font-family: 'Theinhardt';
+    font-size: 11pt;
+    font-weight: bold;
+    height: 20mm; } }
 
 @page :blank {
   margin-left: 8mm;
   margin-right: 10mm;
   margin-top: 10mm;
-  @top-center {
-    content: '';
-    padding-top: 5mm; } }
+  @bottom-center {
+    content: none; } }
+
+@page faux-titre {
+  margin-left: 15mm;
+  margin-right: 15mm;
+  margin-top: 15mm;
+  margin-bottom: 15mm;
+  @bottom-center {
+    content: none; } }
+
+* {
+  font-family: 'Theinhardt';
+  font-size: 11pt;
+  font-weight: bold; }
+
+.info {
+  font-family: 'Theinhardt';
+  font-size: 11pt;
+  font-weight: bold;
+  line-height: 13pt; }
 
 .title {
   -moz-column-break-before: page;
@@ -143,14 +148,25 @@ table {
   position: running(chapterRunning); }
 
 .garde {
-  height: var(--pagedjs-pagebox-height); }
-
-.image {
-  padding-left: 5mm;
-  padding-right: 5mm;
+  page: faux-titre;
   height: var(--pagedjs-pagebox-height);
-  -moz-column-break-before: right;
-       break-before: right; }
-  .image figure img {
-    width: 100%; }
+  page-break-after: always; }
+
+.imageA {
+  padding-left: 10mm;
+  height: var(--pagedjs-pagebox-height); }
+  .imageA figure img {
+    width: 90%; }
+
+.imageB {
+  padding-left: 15mm;
+  height: var(--pagedjs-pagebox-height); }
+  .imageB figure img {
+    width: 80%; }
+
+.imageC {
+  padding-left: 25mm;
+  height: var(--pagedjs-pagebox-height); }
+  .imageC figure img {
+    width: 50%; }
 

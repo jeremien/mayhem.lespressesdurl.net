@@ -20,17 +20,17 @@ def dither_file(src_file, dist_file):
   wpercent = (BASE_WIDTH/float(img.size[0]))
   hsize = int((float(img.size[1])*float(wpercent)))
   img_rz = img.convert('RGB').resize((BASE_WIDTH,hsize), Image.ANTIALIAS)
-  palette = hitherdither.palette.Palette(
-                                          [0xFFFFFF,0x999999, 0x777777, 0x555555, 0x333333, 0x000000]
-                                        )
-  img_dith = hitherdither.ordered.bayer.bayer_dithering(
-                                                        img_rz,
-                                                        palette,
-                                                        [256/4,256/4,256/4],
-                                                        order=8
-                                                      )
+  # palette = hitherdither.palette.Palette(
+  #                                         [0xFFFFFF,0x999999, 0x777777, 0x555555, 0x333333, 0x000000]
+  #                                       )
+  # img_dith = hitherdither.ordered.bayer.bayer_dithering(
+  #                                                       img_rz,
+  #                                                       palette,
+  #                                                       [256/4,256/4,256/4],
+  #                                                       order=8
+  #                                                     )
   
-  img_nb = img_dith.convert('L')
+  img_nb = img_rz.convert('L')
   # img_nb.thumbnail(400, Image.ANTIALIAS)
   img_nb.save(dist_file, 'JPEG')
   if os.path.exists(src_file):
