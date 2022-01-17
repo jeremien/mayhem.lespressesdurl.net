@@ -133,6 +133,9 @@ table {
   font-size: 11pt;
   font-weight: bold; }
 
+i {
+  font-style: italic; }
+
 .info {
   font-family: 'Theinhardt';
   font-size: 11pt;

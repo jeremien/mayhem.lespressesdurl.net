@@ -5,7 +5,15 @@
   {% for d in data %}
     
     {% if d.directory == 'corps' %}
-      {% include 'texte.html' %}
+      {% include 'texte1.html' %}
+    {% endif %}
+
+    {% if d.directory == 'omen' %}
+      {% include 'texte2.html' %}
+    {% endif %}
+
+    {% if d.directory == 'dragon' %}
+      {% include 'texte3.html' %}
     {% endif %}
 
     {% for file in d.files %}
