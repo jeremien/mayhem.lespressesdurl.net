@@ -8,7 +8,14 @@ list_dir = os.listdir(PATH)
 
 def test_ext(file_path):
   file_name, file_ext = os.path.splitext(file_path)
-  if file_ext == '.jpg' or file_ext == '.png' or file_ext == '.gif' or file_ext == '.js' or file_ext == '.css' or file_ext == '.scss':
+  if file_ext == '.jpg' \
+    or file_ext == '.png' \
+    or file_ext == '.gif' \
+    or file_ext == '.js' \
+    or file_ext == '.css' \
+    or file_ext == '.otf' \
+    or file_ext == '.woff2' \
+    or file_ext == '.scss':
     print(file_name)
   else:
     print('remove')
@@ -44,13 +51,18 @@ def process_file(list_files, dir_path):
       print(f, 'file')
       test_ext(dir_path + f[1])
       _, file_ext = os.path.splitext(f[1])
-      if file_ext  == '.css' or file_ext  == '.scss' or file_ext == '.js':
+      if file_ext  == '.css' \
+        or file_ext  == '.scss' \
+        or file_ext == '.js' \
+        or file_ext == '.otf' \
+        or file_ext == '.woff2':
         continue
       else:
         dither_file(dir_path + f[1], dir_path + str(f[0]) + '.jpg')
     else:
-      # print(f, 'dir')
-      if f[1] == 'scss':
+      print(f, 'dir')
+      if f[1] == 'scss' \
+        or f[1] == 'fonts':
         continue
       else:
         sub_files = os.listdir(dir_path + f[1])
@@ -58,8 +70,12 @@ def process_file(list_files, dir_path):
           print(i, 'file')
           test_ext(dir_path + f[1] + '/' + i[1])
           _, file_ext = os.path.splitext(f[1])
-          if file_ext == '.css' or file_ext == '.scss' or file_ext == '.js':
-            pass
+          if file_ext  == '.css' \
+            or file_ext  == '.scss' \
+            or file_ext == '.js' \
+            or file_ext == '.otf' \
+            or file_ext == '.woff2':
+            continue
           else:
             dither_file(dir_path + f[1] + '/' + i[1], dir_path + f[1] + '/' + str(i[0]) + '.jpg')
 
