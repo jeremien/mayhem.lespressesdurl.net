@@ -81,7 +81,7 @@ table {
   size: 108mm 175mm;
   margin: 20mm;
   marks: crop;
-  bleed: 3.8mm; }
+  bleed: 3.18mm; }
 
 @page :first {
   margin-left: 10mm;
@@ -156,20 +156,19 @@ i {
   page-break-after: always; }
 
 .imageA {
-  padding-left: 10mm;
-  height: var(--pagedjs-pagebox-height); }
-  .imageA figure img {
-    width: 90%; }
-
-.imageB {
-  padding-left: 15mm;
-  height: var(--pagedjs-pagebox-height); }
-  .imageB figure img {
-    width: 80%; }
-
-.imageC {
   padding-left: 25mm;
   height: var(--pagedjs-pagebox-height); }
+  .imageA figure img {
+    width: 60%; }
+
+.imageB {
+  padding-left: 10mm;
+  height: var(--pagedjs-pagebox-height); }
+  .imageB figure img {
+    width: 90%; }
+
+.imageC {
+  height: var(--pagedjs-pagebox-height); }
   .imageC figure img {
-    width: 50%; }
+    width: 100%; }
 

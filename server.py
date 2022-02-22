@@ -34,7 +34,7 @@ def read_data():
 @app.route('/')
 def home():
   data = read_data()
-  return render_template('home2.html', data=data)
+  return render_template('home.html', data=data)
 
 @app.route("/static/<path:dir>/<path:file>")
 def get_image(dir='test', file='test'):

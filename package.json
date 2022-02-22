@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":"webpack --watch --stats-children --mode=development",
-    "deploy":"webpack --mode=production"
+    "dev": "webpack --watch --stats-children --mode=development",
+    "deploy": "webpack --mode=production"
   },
   "repository": {
     "type": "git",

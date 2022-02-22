@@ -25,33 +25,38 @@ class imageRatio extends Paged.Handler {
       // when the image loads
       img.onload = function () {
         // page in px 
-        const pageH = 600
+        const pageH = 500
+        const pageW = 300
 
         // find its height
         const imH = img.height
 
         // find its width
         const imW = img.width
-        console.log('height', imH, 'width', imW)
+        
+        const imageHeightPage = (imH / 100) * 6
 
-
-        if (imH < 600) {
-          image.parentNode.parentNode.classList.add('imageA')
-          // calculate the marges
-          const marginImage = (pageH - imH)/2
-          console.log(marginImage)
-          if (marginImage > 0) {
-            // applique to the image except if its negative
-            image.style.marginTop = marginImage + 'px'
-          }
-
-        } else if (imH > 1000 ) {
-          image.parentNode.parentNode.classList.add('imageC')
+        let ratio = Math.floor(imH / imW)
+        
+        // TODO: ajouter le ratio
+        const marginImage = ((pageH - imageHeightPage) / 2)
+        if (marginImage > 0 && ratio === 2) {
+          image.style.marginTop = marginImage + 'px'
+        } else if (marginImage > 0 && ratio === 0) {
+          image.style.marginTop = marginImage + 'px'
         } else {
-          image.parentNode.parentNode.classList.add('imageB')
-
+          image.style.marginTop = null
         }
-
+        
+        if (imH > 6000) {
+          image.parentNode.parentNode.classList.add('imageA')
+        } else if (imH > 2000 && imH < 6000) {
+          image.parentNode.parentNode.classList.add('imageB')
+        } else {
+          image.parentNode.parentNode.classList.add('imageC')
+        }
+          
+        console.log(img, imH, ratio)
       
 
         // resolve the promise
