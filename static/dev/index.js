@@ -55,7 +55,7 @@ class imageRatio extends Paged.Handler {
         
         
         if (ratio === 1) {
-          image.style.marginLeft = marginW + 'px' 
+          image.style.marginLeft = (marginW - 20) + 'px' 
           image.style.marginTop = (marginH - 50) + 'px'
           image.parentNode.style.height = pageH + 'px'
           image.parentNode.style.width = pageW + 'px'
@@ -76,7 +76,7 @@ class imageRatio extends Paged.Handler {
           image.style.marginTop = (marginH + 50) + 'px'
           image.parentNode.style.height = pageH + 'px'
           image.parentNode.style.width = pageW + 'px'
-          image.style.height = '80%'
+          image.style.height = '82%'
         }
         
 

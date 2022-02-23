@@ -1,5 +1,5 @@
 import os, pathlib
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageEnhance
 
 current_path = pathlib.Path().resolve()
 PATH = str(current_path) + '/static'
@@ -25,13 +25,19 @@ def dither_file(src_file, dist_file):
   img = Image.open(src_file)
   wpercent = (BASE_WIDTH/float(img.size[0]))
   hsize = int((float(img.size[1])*float(wpercent)))
-  img_rz = img.resize((BASE_WIDTH,hsize), Image.ANTIALIAS).filter(ImageFilter.UnsharpMask(3, 120, 4))
+  img_rz = img.resize((BASE_WIDTH,hsize), Image.ANTIALIAS)\
+    .filter(ImageFilter.UnsharpMask(3, 120, 4))\
+    .convert('L')
+  img_ctr = ImageEnhance.Contrast(img_rz).enhance(1.5)
+
+  print('*** convert and save ***')
   print(wpercent, hsize)
-  img_rz.save(dist_file, 'JPEG')
+  img_ctr.save(dist_file, 'JPEG')
   
   if os.path.exists(src_file):
     os.remove(src_file)
-    print(img_rz)
+    print('*** finishing ***')
+    print(img_ctr)
   else:
     print('no file')
     
