@@ -28,8 +28,8 @@ class imageRatio extends Paged.Handler {
         /* on calcule la taille de l'image et les marges en fonction de la page */
 
         // page in px 
-        const pageH = 480
-        const pageW = 320
+        const pageH = 510
+        const pageW = 295
 
         // find its height
         const imH = img.naturalHeight
@@ -42,52 +42,40 @@ class imageRatio extends Paged.Handler {
 
         const ratio = Math.floor(imH / imW)
 
-        const marginH = (pageH - imageHeightPage)/2
-        const marginW = (pageW - imageWidthPage)/2
+        const marginH = (pageH - imageHeightPage) / 2
+        const marginW = (pageW - imageWidthPage) / 2
 
         if (ratio === 0) {
-          image.style.marginLeft = marginW + 'px' 
-          image.style.marginTop = (marginH - 30) + 'px'
           image.parentNode.style.height = pageH + 'px'
           image.parentNode.style.width = pageW + 'px'
-          image.style.width = '80%'
+          image.style.width = '95%'
         }
         
         
         if (ratio === 1) {
-          image.style.marginLeft = (marginW - 20) + 'px' 
-          image.style.marginTop = (marginH - 50) + 'px'
           image.parentNode.style.height = pageH + 'px'
           image.parentNode.style.width = pageW + 'px'
-          image.style.width = '70%'
+          image.style.width = '95%'
         }
         
         
         if (ratio === 2) {
-          image.style.marginLeft = (marginW + 30) + 'px' 
-          image.style.marginTop = (marginH + 30) + 'px'
+          image.style.marginLeft = marginW + 'px'
+          image.style.marginRight = marginW + 'px'
           image.parentNode.style.height = pageH + 'px'
           image.parentNode.style.width = pageW + 'px'
-          image.style.height = '75%'
+          image.style.height = '95%'
         }
 
         if (ratio === 3) {
-          image.style.marginLeft = (marginW + 50) + 'px' 
-          image.style.marginTop = (marginH + 50) + 'px'
+          image.style.marginLeft = marginW + 'px' 
+          image.style.marginRight = marginW + 'px' 
           image.parentNode.style.height = pageH + 'px'
           image.parentNode.style.width = pageW + 'px'
-          image.style.height = '82%'
+          image.style.height = '95%'
         }
         
-
-
-
-
-        // image.style.width = imageWidthPage + 'px'
-        // image.style.height = imageHeightPage + 'px'
-        // image.style.height = '480px'
-        
-        console.log(marginW, marginH, ratio)
+        console.log(img, ratio, imageHeightPage, imageWidthPage, marginW, marginH)
 
         // resolve the promise
         resolve()

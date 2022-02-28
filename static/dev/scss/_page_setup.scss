@@ -49,12 +49,12 @@
 @page {
   size : 108mm 175mm;
   margin: 20mm;
-  marks: crop;
-  bleed: 3.18mm;
+  // marks: crop;
+  // bleed: 3.18mm;
 }
 
 @page:first {
-  margin-left: 10mm;
+  margin-left: 15mm;
   margin-right: 15mm;
   margin-top: 20mm;
   margin-bottom: 20mm;
@@ -62,7 +62,7 @@
 }
 
 @page:right {
-  margin-left: 10mm;
+  margin-left: 15mm;
   margin-right: 15mm;
   margin-top: 20mm;
   margin-bottom: 20mm;
@@ -81,9 +81,9 @@
 @page:left {
 
   margin-left: 15mm;
-  margin-right: 10mm;
+  margin-right: 15mm;
   margin-top: 20mm;
-  margin-bottom: 20mm;
+  
 
   @bottom-center {
     content: element(chapterRunning);
@@ -96,9 +96,10 @@
 }
 
 @page:blank {
-  margin-left: 8mm;
-  margin-right: 10mm;
-  margin-top: 10mm;
+  margin-left: 15mm;
+  margin-right: 15mm;
+  margin-top: 20mm;
+  margin-bottom: 20mm;
 
   @bottom-center {
     content: none;

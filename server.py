@@ -28,7 +28,7 @@ def read_data():
         'files': files
       }
       all_data.append(data)
-  #print(all_data)
+  print(all_data)
   return all_data
 
 @app.route('/')
