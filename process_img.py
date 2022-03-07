@@ -21,7 +21,7 @@ def test_ext(file_path):
     os.remove(file_path)
 
 def dither_file(src_file, dist_file):
-  BASE_WIDTH = 3200
+  BASE_WIDTH = 1600
   img = Image.open(src_file)
   wpercent = (BASE_WIDTH/float(img.size[0]))
   hsize = int((float(img.size[1])*float(wpercent)))

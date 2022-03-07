@@ -37,13 +37,13 @@ class imageRatio extends Paged.Handler {
         // find its width
         const imW = img.naturalWidth
         
-        const imageHeightPage = (imH / 100) * 6
-        const imageWidthPage = (imW / 100) * 6
+        const imageHeightPage = (imH / 100) * 3
+        const imageWidthPage = (imW / 100) * 3
 
         const ratio = Math.floor(imH / imW)
 
-        const marginH = (pageH - imageHeightPage) / 2
-        const marginW = (pageW - imageWidthPage) / 2
+        const marginH = (pageH - imageHeightPage) / 4
+        const marginW = (pageW - imageWidthPage) / 4
 
         if (ratio === 0) {
           image.parentNode.style.height = pageH + 'px'
